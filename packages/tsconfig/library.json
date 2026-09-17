@@ -1,18 +1,8 @@
 {
-    "extends": "./base.json",
-    "display": "Library",
-    "compilerOptions": {
-        "composite": true,
-        "rootDir": "src",
-        "outDir": "dist"
-    },
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "dist",
-        "node_modules",
-        "**/*.test.ts",
-        "**/*.spec.ts"
-    ]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./base.json",
+  "display": "Library",
+  "compilerOptions": {
+    "composite": true
+  }
 }

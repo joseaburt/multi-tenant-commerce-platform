@@ -1,7 +1,13 @@
 {
   "$schema": "https://turborepo.dev/schema.json",
   "ui": "tui",
-  "globalDependencies": ["tsconfig.base.json", "eslint.config.mjs", ".npmrc", ".nvmrc"],
+  "globalDependencies": [
+    "eslint.config.mjs",
+    "packages/eslint-config/*.js",
+    "packages/tsconfig/*.json",
+    ".npmrc",
+    ".nvmrc"
+  ],
   "globalEnv": ["NODE_ENV", "CI"],
   "tasks": {
     "build": {
