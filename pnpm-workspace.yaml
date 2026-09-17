@@ -7,4 +7,5 @@ onlyBuiltDependencies:
   - esbuild
 
 allowBuilds:
+  lefthook: true
   unrs-resolver: true

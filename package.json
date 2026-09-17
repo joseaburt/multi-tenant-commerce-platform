@@ -7,6 +7,7 @@
     "pnpm": ">=10"
   },
   "scripts": {
+    "prepare": "lefthook install",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
@@ -18,9 +19,12 @@
   },
   "packageManager": "pnpm@11.25.0",
   "devDependencies": {
+    "@commitlint/cli": "^21.2.2",
+    "@commitlint/config-conventional": "^21.2.2",
     "@mtcp/eslint-config": "workspace:*",
     "@mtcp/tsconfig": "workspace:*",
     "eslint": "^10.10.0",
+    "lefthook": "^2.1.14",
     "prettier": "^3.9.7",
     "turbo": "^2.10.13",
     "typescript": "^6.0.3"
