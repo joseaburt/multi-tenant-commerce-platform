@@ -1,0 +1,39 @@
+{
+  "name": "multi-tenant-commerce-platform",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22 <23",
+    "pnpm": ">=11"
+  },
+  "scripts": {
+    "prepare": "lefthook install",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "check-types": "turbo run check-types",
+    "check:arch": "depcruise packages --config .dependency-cruiser.cjs",
+    "test:unit": "turbo run test:unit",
+    "test:integration": "turbo run test:integration",
+    "test:e2e": "turbo run test:e2e",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "packageManager": "pnpm@11.25.0",
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.2",
+    "@commitlint/config-conventional": "^21.2.2",
+    "@mtcp/eslint-config": "workspace:*",
+    "@mtcp/tsconfig": "workspace:*",
+    "@swc/core": "^1.16.2",
+    "@vitest/coverage-v8": "^5.0.1",
+    "dependency-cruiser": "^18.3.1",
+    "eslint": "^10.10.0",
+    "lefthook": "^2.1.14",
+    "prettier": "^3.9.7",
+    "reflect-metadata": "^0.2.2",
+    "turbo": "^2.10.13",
+    "typescript": "^6.0.3",
+    "unplugin-swc": "^1.6.0",
+    "vitest": "^5.0.1"
+  }
+}
