@@ -1,0 +1,35 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "ui": "tui",
+  "globalDependencies": ["tsconfig.base.json", "eslint.config.mjs", ".npmrc", ".nvmrc"],
+  "globalEnv": ["NODE_ENV", "CI"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "check-types": {
+      "dependsOn": ["^build"],
+      "outputs": ["*.tsbuildinfo"]
+    },
+    "test:unit": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**"]
+    },
+    "test:integration": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "test:e2e": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
