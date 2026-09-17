@@ -36,7 +36,7 @@ export const nest = [
         {
           patterns: [
             {
-              group: FRAMEWORK_AND_IO.filter((p) => p !== '@nestjs/*'),
+              group: FRAMEWORK_AND_IO,
               message: 'Los casos de uso dependen de puertos, no de implementaciones concretas.',
             },
             {
