@@ -1,6 +1,7 @@
 # ADR-0002 · Architecture boundaries enforced by tooling
 
 ## Status
+
 Accepted · 2026-09-17
 
 ## Context
@@ -90,6 +91,7 @@ structural rewrite.
 ## Consequences
 
 ### Positive
+
 - Architectural violations fail the build rather than depending on vigilance.
 - The claim "the domain has no framework dependencies" is verifiable by running
   a command, not by reading the code.
@@ -97,6 +99,7 @@ structural rewrite.
   addition is a reviewable commit with a rationale.
 
 ### Negative
+
 - **Two overlapping configurations to maintain.** A new layer or package must be
   reflected in both tools, and it is possible for them to disagree.
 - **Type-aware linting is slow.** `strictTypeChecked` with `projectService`
@@ -112,6 +115,7 @@ structural rewrite.
 ## Review
 
 Revisit if any of the following holds:
+
 - A violation is found that both tools failed to detect, indicating the rules
   encode the wrong invariant.
 - Lint duration becomes the dominant cost of a pull request.

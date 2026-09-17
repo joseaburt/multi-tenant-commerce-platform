@@ -1,6 +1,7 @@
 # ADR-0003 · Vitest with SWC instead of Jest
 
 ## Status
+
 Accepted · 2026-09-17
 
 ## Context
@@ -79,12 +80,14 @@ imperfect one.
 ## Consequences
 
 ### Positive
+
 - Test runs are not gated on type checking, which happens once in its own step.
 - Decorator metadata is guaranteed by configuration shared across every service.
 - Coverage thresholds apply to domain and application only, where coverage
   reflects behaviour rather than restating what a library already guarantees.
 
 ### Negative
+
 - **Divergence from NestJS documentation.** Official examples assume Jest.
   `@nestjs/testing` is runner-agnostic and works with Vitest, but setup
   problems have fewer directly applicable answers.
@@ -100,6 +103,7 @@ imperfect one.
 ## Review
 
 Revisit if any of the following holds:
+
 - The SWC and TypeScript decorator configurations are found to have drifted,
   indicating the duplication needs a single generator.
 - `@nestjs/testing` introduces a Jest-specific dependency that Vitest cannot

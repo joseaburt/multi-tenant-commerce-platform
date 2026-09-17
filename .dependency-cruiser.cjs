@@ -62,16 +62,14 @@ module.exports = {
     {
       name: 'no-cross-service-imports',
       severity: 'error',
-      comment:
-        'Un servicio nunca importa código de otro. Comunícate por contrato: evento, RPC o API.',
+      comment: 'Un servicio nunca importa código de otro. Comunícate por contrato: evento, RPC o API.',
       from: { path: '^apps/([^/]+)/src' },
       to: { path: '^apps/(?!$1)[^/]+/src' },
     },
     {
       name: 'packages-never-import-apps',
       severity: 'error',
-      comment:
-        'Las dependencias apuntan hacia dentro. Un paquete compartido que importa un servicio invierte la relación y acopla a todos los demás.',
+      comment: 'Las dependencias apuntan hacia dentro. Un paquete compartido que importa un servicio invierte la relación y acopla a todos los demás.',
       from: { path: '^packages/[^/]+/src' },
       to: { path: '^apps/' },
     },

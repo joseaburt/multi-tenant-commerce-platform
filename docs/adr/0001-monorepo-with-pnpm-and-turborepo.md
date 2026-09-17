@@ -1,6 +1,7 @@
 # ADR-0001 · Monorepo with pnpm workspaces and Turborepo
 
 ## Status
+
 Accepted · 2026-09-17
 
 ## Context
@@ -95,11 +96,13 @@ of this size.
 ## Consequences
 
 ### Positive
+
 - A contract and both sides of it change in one reviewable, revertible commit.
 - Two services cannot drift onto different versions of a platform dependency.
 - Tooling is defined once and inherited.
 
 ### Negative
+
 - **Proximity invites coupling.** Physical access to another service's source
   makes an illegitimate import a one-line mistake. This is the monorepo's real
   risk and the reason the boundary is enforced by tooling in CI rather than by
@@ -120,6 +123,7 @@ of this size.
 ## Review
 
 Revisit if any of the following holds:
+
 - More than one team owns services in this repository and their release
   cadences diverge.
 - A service requires a language or runtime outside the Node toolchain.

@@ -26,7 +26,7 @@ Git hooks (Lefthook) run only what completes in seconds:
 - `pre-commit`: formatting and linting, restricted to staged files.
 - `commit-msg`: Conventional Commits validation.
 - `pre-push`: unit tests, filtered by Turborepo to packages affected relative to
-the target branch.
+  the target branch.
 
 CI runs everything, against the whole repository rather than against a diff:
 formatting, linting, type checking, architecture rules and unit tests, with
@@ -41,8 +41,6 @@ Prettier runs in check mode rather than write mode. A hook that rewrites files
 during a commit produces a commit whose content was never reviewed.
 
 ## Alternatives considered
-
-
 
 ### Everything in hooks
 
@@ -72,38 +70,31 @@ keeps the author's local state and the repository in agreement.
 
 ## Consequences
 
-
-
 ### Positive
 
 - Fast feedback locally without treating local checks as a guarantee.
 - Every rule is enforced at a point that cannot be bypassed.
 - The most expensive suites run once per push rather than once per commit.
 
-
-
 ### Negative
 
 - **Work is duplicated by design.** The same checks run twice, and a reader who
-does not know the reasoning will see redundancy.
+  does not know the reasoning will see redundancy.
 - **Local and CI results can diverge.** Hooks see staged files, CI sees the
-whole repository, so a file altered outside the commit can pass locally and
-fail in CI.
+  whole repository, so a file altered outside the commit can pass locally and
+  fail in CI.
 - **Hooks require installation.** Lefthook is wired through a `prepare` script;
-a clone that skips install has no hooks at all, and nothing signals this.
+  a clone that skips install has no hooks at all, and nothing signals this.
 - **Pre-push filtering depends on the target branch existing locally.** A stale
-or missing `origin/dev` reference silently changes which packages are tested.
-
-
+  or missing `origin/dev` reference silently changes which packages are tested.
 
 ## Review
 
 Revisit if any of the following holds:
 
 - Pre-push duration grows enough that it is routinely bypassed, in which case
-the unit test step moves to CI only.
+  the unit test step moves to CI only.
 - The project gains contributors, making hook installation unreliable enough
-that local checks should be abandoned in favour of CI alone.
+  that local checks should be abandoned in favour of CI alone.
 - CI duration on an average pull request makes latency, rather than
-enforcement, the binding constraint.
-
+  enforcement, the binding constraint.
