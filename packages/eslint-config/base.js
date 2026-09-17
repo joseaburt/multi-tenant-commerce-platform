@@ -1,18 +1,15 @@
-import js from "@eslint/js";
-import importX from "eslint-plugin-import-x";
-import globals from "globals";
-import tseslint from "typescript-eslint";
+import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
+import prettier from 'eslint-config-prettier';
+import importX from 'eslint-plugin-import-x';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 export const disableTypeChecked = tseslint.configs.disableTypeChecked;
 
-export const base = tseslint.config(
+export const base = defineConfig(
   {
-    ignores: [
-      "**/dist/**",
-      "**/node_modules/**",
-      "**/.turbo/**",
-      "**/coverage/**",
-    ],
+    ignores: ['**/dist/**', '**/node_modules/**', '**/.turbo/**', '**/coverage/**'],
   },
   js.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
@@ -25,30 +22,24 @@ export const base = tseslint.config(
         tsconfigRootDir: process.cwd(),
       },
     },
-    plugins: { "import-x": importX },
+    plugins: { 'import-x': importX },
     rules: {
-      "import-x/order": [
-        "error",
+      'import-x/order': [
+        'error',
         {
-          groups: [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index",
-          ],
-          "newlines-between": "always",
-          alphabetize: { order: "asc" },
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          'newlines-between': 'always',
+          alphabetize: { order: 'asc' },
         },
       ],
-      "import-x/no-duplicates": "error",
-      "@typescript-eslint/consistent-type-imports": "off",
-      "@typescript-eslint/no-floating-promises": "error",
-      "@typescript-eslint/no-misused-promises": "error",
-      "@typescript-eslint/require-await": "error",
-      "@typescript-eslint/switch-exhaustiveness-check": "error",
-      "no-console": "error",
+      'import-x/no-duplicates': 'error',
+      '@typescript-eslint/consistent-type-imports': 'off',
+      '@typescript-eslint/no-floating-promises': 'error',
+      '@typescript-eslint/no-misused-promises': 'error',
+      '@typescript-eslint/require-await': 'error',
+      '@typescript-eslint/switch-exhaustiveness-check': 'error',
+      'no-console': 'error',
     },
   },
+  prettier,
 );
