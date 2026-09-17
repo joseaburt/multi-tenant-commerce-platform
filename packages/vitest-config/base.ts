@@ -14,6 +14,7 @@ export const base = defineConfig({
         transform: {
           legacyDecorator: true,
           decoratorMetadata: true,
+          useDefineForClassFields: false,
         },
       },
     }),

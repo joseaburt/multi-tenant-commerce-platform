@@ -2,9 +2,15 @@ packages:
   - "apps/*"
   - "packages/*"
 
-onlyBuiltDependencies:
-  - "@swc/core"
-  - esbuild
+# Resolución estricta: una dependencia no declarada no se resuelve.
+# Las dependencias fantasma aparecen en pnpm install, no en docker build.
+nodeLinker: isolated
+
+# El ecosistema NestJS declara muchos peers; instalarlos a mano es ruido.
+autoInstallPeers: true
+
+# En CI, cualquier desincronización del lockfile debe romper el build.
+preferFrozenLockfile: true
 
 allowBuilds:
   "@swc/core": true
