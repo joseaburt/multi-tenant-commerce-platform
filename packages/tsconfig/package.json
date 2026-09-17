@@ -5,6 +5,7 @@
   "files": [
     "base.json",
     "library.json",
-    "nest.json"
+    "nest.json",
+    "tooling.json"
   ]
 }

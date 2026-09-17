@@ -7,5 +7,6 @@ onlyBuiltDependencies:
   - esbuild
 
 allowBuilds:
+  "@swc/core": true
   lefthook: true
   unrs-resolver: true
